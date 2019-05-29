@@ -32,7 +32,6 @@ public class ForDemo {
 			 if(count==0)
 			 System.out.println(x+"는 소수입니다.");
 					 
-				 
 		 }
 
 	}
