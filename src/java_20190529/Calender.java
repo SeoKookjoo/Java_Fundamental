@@ -1,12 +1,22 @@
 package java_20190529;
 
 public class Calender {
-	public static void main(String[] args) {
-		
-		int year = Integer.parseInt(args[0]);
-		int month = Integer.parseInt(args[1]);
-		int date = Integer.parseInt(args[2]);
-
+	public static final int SUNDAY = 0;
+	public static final int MONDAY = 1;
+	public static final int TUESDAY = 2;
+	public static final int WENDESDAY = 3;
+	public static final int THURSDAY = 4;
+	public static final int FRIDAY = 5;
+	public static final int SATURDAY = 6;
+			
+		public void print(int year){
+			
+		}
+		public void print(int year, int month){
+			
+		}
+		public void print(int year, int month, int day)
+		{
 		int preYear = year -1;
 		int preMonth = month -1;
 		
@@ -23,20 +33,19 @@ public class Calender {
 			totalCnt++;
 		}
 		
-		totalCnt += date;
+		totalCnt += day;
 		int rest = totalCnt % 7;
-		String day = "";
+		String dayOfWeek = "";
 		switch(rest){
-		case 1 : day = "월요일";  break;
-		case 2 : day = "화요일";  break;
-		case 3 : day = "수요일";  break;
-		case 4 : day = "목요일";  break;
-		case 5 : day = "금요일";  break;
-		case 6 : day = "토요일";  break;
-		case 0 : day = "일요일";  break;
+		case Calender.MONDAY : dayOfWeek = "월요일";  break;
+		case Calender.TUESDAY : dayOfWeek = "화요일";  break;
+		case Calender.WENDESDAY : dayOfWeek = "수요일";  break;
+		case Calender.THURSDAY : dayOfWeek = "목요일";  break;
+		case Calender.FRIDAY : dayOfWeek = "금요일";  break;
+		case Calender.SATURDAY : dayOfWeek = "토요일";  break;
+		case Calender.SUNDAY : dayOfWeek = "일요일";  break;
 		}
-		System.out.print(year+"년 "+month+"월 "+date+"일은 "+day+"입니다.");
+		System.out.print(year+"년 "+month+"월 "+day+"일은 "+dayOfWeek+"입니다.");
 				
-		
-	}
+		}
 }
