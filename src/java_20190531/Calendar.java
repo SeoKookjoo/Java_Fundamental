@@ -10,6 +10,7 @@ public static final int THURSDAY = 4;
 public static final int FRIDAY = 5;
 public static final int SATURDAY = 6;
 
+//윤년인지 아닌지를 판단하는 매서드, 매개변수가 윤년이면 true 아니면 false
 private boolean isLeafYear(int year)
 {
 	boolean isLeafYear = false;
@@ -19,10 +20,11 @@ private boolean isLeafYear(int year)
 	return isLeafYear;
 
 }
-
+//1년 1월 1일부터 ~년, 월, 일의 총 일수를 구하는 매서드
 private int getCount(int year, int month, int day){
-	
+	//총 일수를 구할 때 이전 연도까지 구해야하므로
 	int preYear = year - 1;
+	//해당년도의 이전달을 저장하기 위한 변수
 	int preMonth = month - 1;
 
 	int totalCnt = 0;
@@ -51,11 +53,11 @@ private int getCount(int year, int month, int day){
 	totalCnt += day;
 	return totalCnt;
 }
-
-public int getLastDay(int year, int month){
+//매월 마지막날을 구하는 매서드
+private int getLastDay(int year, int month){
 	int[] monthArray = {31,28,31,30,31,30,31,31,30,31,30,31};
 	if(isLeafYear(year)){
-
+		//윤년이면 29일로 바꾼다
 		monthArray[1]=29;		
 	}
 	return monthArray[month-1];
@@ -78,20 +80,32 @@ public int getLastDay(int year, int month){
 		
 		int start = 1;
 		int end = getLastDay(year, month);
-		int rest = getCount(year, month, 1)%7;
-		for(int i=0;i<rest;i++){
+		int dayOfWeek = getCount(year, month, 1)%7;
+		
+		//요일수 만큼 탭 처리
+		//월요일이면 dayOfWeek = 1 
+		//화요일이면 dayOfWeek = 2
+		//................. 
+		//토요일이면 dayOfWeek = 6 
+		//일요일이면 dayOfWeek = 7 
+		
+		for(int i=0;i<dayOfWeek;i++){
 			System.out.print("\t");
 		}
 		for(int i=start;i<=end;i++){
 
 			System.out.print(i+"\t");
-			rest++;
-			if(rest%7==0){
+			//요일을 증가
+			dayOfWeek++;
+			//dayOfWeek가 7이 되면 개행을 해준다.
+			if(dayOfWeek%7==0){
 				System.out.println();
 			}
 		}
 		System.out.println();
 	}
+	
+	
 	public void print(int year, int month, int day) {
 		// TODO Auto-generated method stub
 

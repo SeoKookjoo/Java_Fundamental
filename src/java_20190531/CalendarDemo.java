@@ -24,11 +24,17 @@ public class CalendarDemo {
 
 			if (readLine.equals("bye"))
 				break;
+			//readLine => 2019 5 31
+			//split(" ") 공백문자로 문자열을 분리해서 배열로 반환
+			//data[0] = "2019", data[1] = "5", data[2] = "31"
 
-			c = new Calendar();
-			// split("") 공백문자로 문자열을 분리해서 배열로 전환
 			String[] data = readLine.split(" ");
+			//Calendar 객체 생성해서 아래 모든 경우에서 사용한다.
+			c = new Calendar();
 			if (data.length == 1) {
+				//year = 2019;
+				//Integer.parseInt("2019") => 2019로 바꿔줌
+				//Integer.parseInt() 메소드는 문자열을  int로 변환하는 메서드
 				int year = Integer.parseInt(data[0]);
 				c.print(year);
 
